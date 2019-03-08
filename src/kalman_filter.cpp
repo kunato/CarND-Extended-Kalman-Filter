@@ -71,11 +71,13 @@ void KalmanFilter::UpdateEKF(const VectorXd &z)
   VectorXd z_pred = tools.Cart2Polar(x_);
   VectorXd y = z - z_pred;
 
-	double phi = y(1);
-	if (phi > M_PI){
+  double phi = y(1);
+  if (phi > M_PI)
+  {
     y(1) = phi - 2 * M_PI;
   }
-	else if (phi < -M_PI){
+  else if (phi < -M_PI)
+  {
     y(1) = phi + 2 * M_PI;
   }
 
